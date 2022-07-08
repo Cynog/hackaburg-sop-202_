@@ -1,0 +1,1 @@
+cat engines_links.csv | xargs -I % wget --quiet -O - % | sed -n -e 's!.*<title>\(.*\)</title>.*!\1!p' > titles.txt
