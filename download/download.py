@@ -27,9 +27,12 @@ def main(out, temp, filter_file):
     with open(filter_file, "r") as f:
         filters = [filter[:-1] for filter in f.readlines()]
     # print(filters)
-    with open("titles.txt", "r", encoding="utf-8") as f:
+    cwd = os.path.dirname(__file__)
+    titles_path = os.path.join(cwd, "titles.txt")
+    engines_path = os.path.join(cwd, "engines.csv")
+    with open(titles_path, "r", encoding="utf-8") as f:
         titles = f.readlines()
-    with open("engines.csv", "r") as f:
+    with open(engines_path, "r") as f:
         data = [[p.strip() for p in l.split(",")] for l in f.readlines()]
 
     downloaded = [n[:n.index(".")] for n in os.listdir(out)]
