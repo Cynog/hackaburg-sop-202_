@@ -1,0 +1,4 @@
+# exclude .env file
+.env
+
+*.wav
